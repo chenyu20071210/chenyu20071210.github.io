@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Moving Car</title>
+    <style>
+        canvas { border: 1px solid #ccc; }
+    </style>
+</head>
+<body>
+    <canvas id="c" width="800" height="300"></canvas>
+
+    <script>
+        let c = document.getElementById('c');
+        let ctx = c.getContext('2d');
+        let x = 0;
+
+        function drawCar(x) {
+            // 车身
+            ctx.fillStyle = 'blue';
+            ctx.fillRect(x, 200, 80, 30);
+            // 轮子
+            ctx.fillStyle = 'black';
+            ctx.beginPath();
+            ctx.arc(x + 20, 230, 10, 0, Math.PI*2);
+            ctx.arc(x + 60, 230, 10, 0, Math.PI*2);
+            ctx.fill();
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, c.width, c.height);
+            drawCar(x);
+            x += 2;
+            if (x > 800) x = -100;
+            requestAnimationFrame(draw);
+        }
+
+        draw();
+    </script>
+</body>
+</html>
