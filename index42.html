@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Lab4-2 Animation</title>
+    <style>
+        body{
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+            background:#222;
+            perspective:800px;
+        }
+        .box{
+            width:150px;
+            height:150px;
+            position:relative;
+            transform-style:preserve-3d;
+            animation:spin 6s linear infinite;
+        }
+        .box div{
+            position:absolute;
+            width:100%;
+            height:100%;
+            opacity:0.8;
+        }
+        .front{background:linear-gradient(45deg,red,yellow);transform:translateZ(75px);}
+        .back{background:linear-gradient(45deg,blue,cyan);transform:rotateY(180deg) translateZ(75px);}
+        .right{background:linear-gradient(45deg,lime,magenta);transform:rotateY(90deg) translateZ(75px);}
+        .left{background:linear-gradient(45deg,orange,purple);transform:rotateY(-90deg) translateZ(75px);}
+        .top{background:linear-gradient(45deg,pink,white);transform:rotateX(90deg) translateZ(75px);}
+        .bottom{background:linear-gradient(45deg,brown,black);transform:rotateX(-90deg) translateZ(75px);}
+        @keyframes spin{
+            0%{transform:rotateX(0) rotateY(0);}
+            100%{transform:rotateX(360deg) rotateY(360deg);}
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="front"></div>
+        <div class="back"></div>
+        <div class="right"></div>
+        <div class="left"></div>
+        <div class="top"></div>
+        <div class="bottom"></div>
+    </div>
+</body>
+</html>
