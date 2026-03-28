@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Moving Car Animation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            height: 100vh;
+            background: #f0f0f0;
+            position: relative;
+            overflow: hidden;
+        }
+        .car {
+            position: absolute;
+            bottom: 100px;
+            left: -300px;
+            width: 300px;
+            height: auto;
+            animation: moveCar 8s linear infinite;
+        }
+        @keyframes moveCar {
+            0% { left: -300px; transform: scaleX(1); }
+            50% { left: calc(100vw - 0px); transform: scaleX(1); }
+            51% { transform: scaleX(-1); }
+            100% { left: -300px; transform: scaleX(-1); }
+        }
+        .car img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="car">
+        < img src="car.png" alt="Moving Car">
+    </div>
+</body>
+</html>
