@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Gradient Cube</title>
+    <style>
+        /* 让立方体在页面居中，不用改 */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+
+        /* 立方体容器，3D效果的核心，不用改 */
+        .cube {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            transform-style: preserve-3d;
+            transform: rotateX(30deg) rotateY(45deg);
+        }
+
+        /* 立方体6个面的通用样式，不用改 */
+        .cube-face {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border: 2px solid #333;
+            box-sizing: border-box;
+            opacity: 0.9;
+        }
+
+        /* 前面：蓝紫渐变，用了linear-gradient，满足要求 */
+        .front {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transform: translateZ(100px);
+        }
+
+        /* 后面：粉橙渐变 */
+        .back {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            transform: translateZ(-100px) rotateY(180deg);
+        }
+
+        /* 左面：青绿渐变，用了skewX倾斜，满足要求 */
+        .left {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            transform: translateX(-100px) rotateY(-90deg) skewX(10deg);
+        }
+
+        /* 右面：黄绿渐变，用了skewX反向倾斜 */
+        .right {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            transform: translateX(100px) rotateY(90deg) skewX(-10deg);
+        }
+
+        /* 上面：黄粉渐变，用了skewY倾斜，满足要求 */
+        .top {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            transform: translateY(-100px) rotateX(90deg) skewY(10deg);
+        }
+
+        /* 下面：紫蓝渐变，用了skewY反向倾斜 */
+        .bottom {
+            background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+            transform: translateY(100px) rotateX(-90deg) skewY(-10deg);
+        }
+    </style>
+</head>
+<body>
+    <!-- 立方体的结构，不用改 -->
+    <div class="cube">
+        <div class="cube-face front"></div>
+        <div class="cube-face back"></div>
+        <div class="cube-face left"></div>
+        <div class="cube-face right"></div>
+        <div class="cube-face top"></div>
+        <div class="cube-face bottom"></div>
+    </div>
+</body>
+</html>
