@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>解一元二次方程</title>
+</head>
+<body>
+    <script>
+        // 获取用户输入的a、b、c
+        let a = prompt("请输入系数a的值：");
+        let b = prompt("请输入系数b的值：");
+        let c = prompt("请输入系数c的值：");
+
+        // 转换为数字类型
+        a = parseFloat(a);
+        b = parseFloat(b);
+        c = parseFloat(c);
+
+        // 计算判别式delta
+        let delta = b * b - 4 * a * c;
+
+        // 计算两个根
+        let x1 = (-b + Math.sqrt(delta)) / (2 * a);
+        let x2 = (-b - Math.sqrt(delta)) / (2 * a);
+
+        // 弹窗显示结果
+        alert(`方程的根是：x1 = ${x1}, x2 = ${x2}`);
+
+        // 控制台输出结果
+        console.log(`方程的根是：x1 = ${x1}, x2 = ${x2}`);
+    </script>
+</body>
+</html>
