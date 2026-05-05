@@ -1,69 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
-    <meta charset="utf-8">
-    <title>3D Static Cube</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background: #f0f0f0;
-            margin: 0;
-            perspective: 1000px;
-        }
-        .cube {
-            width: 200px;
-            height: 200px;
-            position: relative;
-            transform-style: preserve-3d;
-            /* 静态，不旋转，符合Lab4要求 */
-            transform: rotateX(30deg) rotateY(45deg);
-        }
-        .cube div {
-            position: absolute;
-            width: 200px;
-            height: 200px;
-            /* 核心：解决开口、面重叠问题 */
-            backface-visibility: hidden;
-            border: 1px solid #333;
-        }
-        /* 6个渐变面，完全闭合 */
-        .front {
-            background: linear-gradient(45deg, #00f, #0ff);
-            transform: translateZ(100px);
-        }
-        .back {
-            background: linear-gradient(45deg, #f00, #ff0);
-            transform: rotateY(180deg) translateZ(100px);
-        }
-        .right {
-            background: linear-gradient(45deg, #0f0, #0ff);
-            transform: rotateY(90deg) translateZ(100px);
-        }
-        .left {
-            background: linear-gradient(45deg, #f0f, #ff0);
-            transform: rotateY(-90deg) translateZ(100px);
-        }
-        .top {
-            background: linear-gradient(45deg, #00f, #f0f);
-            transform: rotateX(90deg) translateZ(100px);
-        }
-        .bottom {
-            background: linear-gradient(45deg, #f00, #0f0);
-            transform: rotateX(-90deg) translateZ(100px);
-        }
-    </style>
+    <meta charset="UTF-8">
+    <title>3D汉诺塔游戏</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="cube">
-        <div class="front"></div>
-        <div class="back"></div>
-        <div class="right"></div>
-        <div class="left"></div>
-        <div class="top"></div>
-        <div class="bottom"></div>
+<div class="box">
+    <h2>汉诺塔小游戏</h2>
+    <div class="btn">
+        <input type="number" id="num" value="3" min="3" max="8">
+        <button id="reset">重新开始</button>
+        <button id="auto">自动通关</button>
     </div>
+    <p>移动次数：<span id="count">0</span></p >
+    <p id="warn"></p >
+    <div class="tower">
+        <div class="col" id="a"></div>
+        <div class="col" id="b"></div>
+        <div class="col" id="c"></div>
+    </div>
+</div>
+<script src="script.js"></script>
 </body>
 </html>
